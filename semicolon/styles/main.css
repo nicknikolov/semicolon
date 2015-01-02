@@ -1,0 +1,57 @@
+body {
+    overflow: hidden;
+}
+#editor {
+    margin: 0;
+    position: absolute;
+    top: 65px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+#TopBar {
+    position: fixed;
+    height: 70px;
+    width: 200%;
+    left: -5px;
+    top: -5px;
+    z-index: 2;
+}
+#BottomBar {
+    position: fixed;
+    height: 50px;
+    width: 200%;
+    left: -5px;
+    bottom: 0px;
+}
+
+#sketchName {
+    font-family: Helvetica;
+    font-size: 15pt;
+    color: white;
+    z-index: 3;
+    position: fixed;
+    top: 30px;
+    left: 37%;
+}
+
+#runButton {
+    font-family: Helvetica;
+    font-size: 14pt;
+    color: white;
+    z-index: 3;
+    position: fixed;
+    top: 30px;
+    right: 10px;
+}
+
+#backButton {
+    font-family: Helvetica;
+    font-size: 14pt;
+    color: white;
+    z-index: 3;
+    position: fixed;
+    top: 30px;
+    left: 10px;
+}

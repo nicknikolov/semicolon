@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <title>Processing.js</title>
+        <script src="javascript/processing.min.js"></script>
+    </head>
+    <body>
+        <script type="text/processing">
+void setup() {
+    size(800, 800, P3D);
+    smooth(8);
+}
+
+void draw() {
+    background(0);
+    int posX = width/2;
+    int posY = height/2;
+    rectMode(CENTER);
+    rect(posX, posY, 40, 40);
+}
+
+        </script>
+        <canvas></canvas>
+    </body>
+</html>

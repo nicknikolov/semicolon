@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <link rel="apple-touch-icon" href="images/icon.jpg" />
+
+        <title>Editor</title>
+        <style type="text/css" media="screen"> </style>
+        <link rel="stylesheet" type="text/css" href="styles/main.css" /> 
+    </head>
+
+    <body>
+        <img src="images/TopBar.png" id="TopBar">
+        <div id="backButton"> ‹ Sketches </div>
+        <div id="sketchName"> Test Sketch </div>
+        <div id="runButton"> Run </div>
+
+        <div> <img src="images/TopBar.png" id="BottomBar"> </div>
+
+        <pre id="editor">
+void setup() {
+    size(200, 200, P3D);
+    smooth(8);
+}
+
+void draw() {
+    background(0);
+    int posX = width/2;
+    int posY = height/2;
+
+    rectMode(CENTER);
+    rect(posX, posY, 40, 40);
+}
+        </pre>
+
+        <script src="javascript/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="javascript/main.js" type="text/javascript" charset="utf-8"></script>
+
+    </body>
+</html>
