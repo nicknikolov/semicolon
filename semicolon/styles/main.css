@@ -1,14 +1,15 @@
+#sketch {
+    left: 400px;
+    top: 100px;
+    position: absolute;
+    z-index: 5;
+}
 body {
     overflow: hidden;
 }
-#editor {
-    margin: 0;
-    position: absolute;
-    top: 65px;
-    bottom: 50px;
-    left: 0;
-    right: 0;
-    z-index: -1;
+
+.CodeMirror {
+    top: 57px;
 }
 #TopBar {
     position: fixed;
