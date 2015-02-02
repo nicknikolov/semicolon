@@ -1,12 +1,15 @@
 var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
     mode: "text/x-java",
     lineNumbers: true,
+    lineWrapping: true,
+    autofocus: true,
     theme: 'solarized',
     smartIndent: true,
     indentUnit: 2,
     tabSize: 2,
 });
 var canvas = document.getElementById('pjs');
+var sketchVisible = true;
 
 editor.on("change", function(e) {
 
@@ -31,3 +34,22 @@ function createCanvas() {
     return sketch;
 }
 
+
+function toggleSketch() {
+    var sketch = document.getElementById('sketch');
+    var code = document.getElementsByClassName('CodeMirror');
+
+    if(sketchVisible) {
+
+        code[0].style.display = 'none';
+        sketchVisible = false;
+
+    } else {
+
+        code[0].style.display = 'block';
+        code[0].style.background = 'rgba(255, 255, 255, 0.4)';
+        sketchVisible = true;
+
+    }
+
+}

@@ -1,26 +1,37 @@
 #sketch {
-    left: 400px;
-    top: 100px;
-    position: absolute;
-    z-index: 5;
+    left: 0px;
+    top: 65px;
+    position: fixed;
+    z-index: 0;
+    opacity: 1;
+    display: inline;
 }
+
 body {
     overflow: hidden;
 }
 
 .CodeMirror {
     top: 57px;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    opacity: 1;
+    display: block;
+    background: rgba(255, 255, 255, 0.4);    
 }
+
 #TopBar {
     position: fixed;
     height: 70px;
     width: 200%;
     left: -5px;
     top: -5px;
-    z-index: 2;
+    z-index: 6;
 }
 #BottomBar {
     position: fixed;
+    display: none;
     height: 50px;
     width: 200%;
     left: -5px;
@@ -31,7 +42,7 @@ body {
     font-family: Helvetica;
     font-size: 15pt;
     color: white;
-    z-index: 3;
+    z-index: 6;
     position: fixed;
     top: 30px;
     left: 37%;
@@ -41,7 +52,7 @@ body {
     font-family: Helvetica;
     font-size: 14pt;
     color: white;
-    z-index: 3;
+    z-index: 6;
     position: fixed;
     top: 30px;
     right: 10px;
@@ -51,7 +62,7 @@ body {
     font-family: Helvetica;
     font-size: 14pt;
     color: white;
-    z-index: 3;
+    z-index: 6;
     position: fixed;
     top: 30px;
     left: 10px;
