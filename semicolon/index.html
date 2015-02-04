@@ -16,7 +16,7 @@
         <script src="javascript/simplescrollbars.js"></script>
         <link rel="stylesheet" href="styles/codemirror.css">
         <link rel="stylesheet" href="styles/simplescrollbars.css">
-        <link rel="stylesheet" href="theme/solarized.css">
+        <link rel="stylesheet" href="theme/ambiance-custom.css">
         <link rel="stylesheet" href="styles/main.css" />
     </head>
 
@@ -29,68 +29,16 @@
 
         <textarea id="editor">
 void setup() {
-  size(screen.width, screen.height);
-  smooth(8);
-  background(255);
+    size(screen.width, screen.height);
 }
 
 void draw() {
-  background(100);
-  translate(mouseX, mouseY);
-  int posX = sin(frameCount * 0.05) * 100;
-  int posY = cos(frameCount * 0.05) * 100;
-  rectMode(CENTER);
-  ellipse(posX, posY, 40, 40);
-}
-
-void something() {
-  background(100);
-  int posX = width/2;
-  int posY = height/2;
-  rectMode(CENTER);
-  rect(posX, posY, 40, 40);
-}
-
-void somethingElse() {
-  background(100);
-  int posX = width/2;
-  int posY = height/2;
-  rectMode(CENTER);
-  rect(posX, posY, 40, 40);
-}
-
-void more() {
-  background(100);
-  int posX = width/2;
-  int posY = height/2;
-  rectMode(CENTER);
-  rect(posX, posY, 40, 40);
-}
-
-void func() {
-  background(100);
-  int posX = width/2;
-  int posY = height/2;
-  rectMode(CENTER);
-  rect(posX, posY, 40, 40);
-}
-
-void fun() {
-  background(100);
-  int posX = width/2;
-  int posY = height/2;
-  rectMode(CENTER);
-  rect(posX, posY, 40, 40);
-}
-
-void foo() {
-  background(100);
-  int posX = width/2;
-  int posY = height/2;
-  rectMode(CENTER);
-  rect(posX, posY, 40, 40);
-}
-</textarea>
+    background(0);
+    translate(mouseX, mouseY);
+    int posX = sin(frameCount * 0.05) * 100;
+    int posY = cos(frameCount * 0.05) * 100;
+    ellipse(posX, posY, 100, 100);
+}</textarea>
 
         <div id="sketch" align = "center">
             <script type="application/processing" 

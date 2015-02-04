@@ -3,7 +3,7 @@ var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
     lineNumbers: true,
     lineWrapping: true,
     autofocus: true,
-    theme: 'solarized',
+    theme: 'ambiance',
     smartIndent: true,
     indentUnit: 2,
     tabSize: 2,
@@ -13,7 +13,11 @@ var sketchVisible = true;
 
 editor.on("change", renderSketch);
 
-window.onload = renderSketch;
+window.onload = function() {
+    renderSketch();
+    var code = document.getElementsByClassName('CodeMirror');
+    code[0].style.background = 'rgba(0, 0, 0, 0.75)';
+}
 
 function renderSketch() {
 
@@ -51,7 +55,7 @@ function toggleSketch() {
     } else {
 
         code[0].style.display = 'block';
-        code[0].style.background = 'rgba(255, 255, 255, 0.4)';
+        code[0].style.background = 'rgba(0, 0, 0, 0.75)';
         sketchVisible = true;
 
     }
