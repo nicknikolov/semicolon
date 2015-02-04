@@ -11,7 +11,11 @@ var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
 var canvas = document.getElementById('pjs');
 var sketchVisible = true;
 
-editor.on("change", function(e) {
+editor.on("change", renderSketch);
+
+window.onload = renderSketch;
+
+function renderSketch() {
 
     try {
         canvas = createCanvas();
@@ -21,7 +25,7 @@ editor.on("change", function(e) {
         console.log(e);
         output.value = "Processing.js error:\n" + e.toString();
     }
-});
+}
 
 function createCanvas() {
     // Make a new canvas, in case we're switching from 2D to 3D contexts.
