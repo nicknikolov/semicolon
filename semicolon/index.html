@@ -22,9 +22,9 @@
 
     <body>
         <img src="images/TopBar.png" id="TopBar">
-        <div id="backButton"> ‹ Sketches </div>
+        <div id="backButton" onclick="toggleBrowser()"> Sketches </div>
         <div id="sketchName"> Test Sketch </div>
-        <div id="runButton" onclick="toggleSketch()">Show/Hide</div>
+        <div id="runButton" onclick="toggleSketch()"> Toggle </div>
         <div> <img src="images/TopBar.png" id="BottomBar"> </div>
 
         <textarea id="editor">
@@ -41,12 +41,15 @@ void draw() {
 }</textarea>
 
         <div id="sketch" align = "center">
-            <script type="application/processing" 
-                    data-processing-target="pjs"> 
+            <script type="application/processing"
+                    data-processing-target="pjs">
             </script>
             <canvas id="pjs" width="100%" height="100%"></canvas>
         </div>
 
+        <div id="sketchBrowser">
+            <ul id="sketchList"></ul>
+        </div>
         <script src="javascript/main.js"
                 type="text/javascript"
                 charset="utf-8">
