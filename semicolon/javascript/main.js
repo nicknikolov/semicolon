@@ -11,6 +11,7 @@ var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
 var canvas = document.getElementById('pjs');
 var sketchVisible = true;
 var selectedSketch = 'Default Sketch';
+var instance;
 
 editor.on('change', renderSketch);
 
@@ -32,23 +33,25 @@ window.onload = function() {
 function renderSketch() {
     try {
         canvas = createCanvas();
+        var canvas = document.getElementById('pjs');
         var sketch = Processing.compile(editor.getValue());
+        if (instance) instance.exit();
         instance = new Processing(canvas, sketch);
+        // save file
+        localStorage.setItem(selectedSketch, editor.getValue());
     } catch (e) {
         console.log(e);
-        output.value = "Processing.js error:\n" + e.toString();
     }
 }
 
 function createCanvas() {
-    // Make a new canvas, in case we're switching from 2D to 3D contexts.
+   // Make a new canvas, in case we're switching from 2D to 3D contexts.
     var container = document.getElementById('sketch');
     var sketch = document.getElementById('pjs');
     container.removeChild(sketch);
     sketch = document.createElement('canvas');
     sketch.id = 'pjs';
     container.appendChild(sketch);
-    localStorage.setItem(selectedSketch, editor.getValue());
     return sketch;
 }
 
