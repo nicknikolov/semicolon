@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <title>Semicolon</title>
+
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no, minimal-ui">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <link rel="apple-touch-icon" href="images/icon.jpg" />
-
-        <title>Editor</title>
-        <style type="text/css" media="screen"> </style>
 
         <script src="javascript/processing.min.js"></script>
         <script src="javascript/codemirror.js"></script>
         <script src="mode/clike/clike.js"></script>
         <script src="javascript/simplescrollbars.js"></script>
+
+        <style type="text/css" media="screen"> </style>
+        <link rel="apple-touch-icon" href="images/icon.jpg" />
         <link rel="stylesheet" href="styles/codemirror.css">
         <link rel="stylesheet" href="styles/simplescrollbars.css">
         <link rel="stylesheet" href="theme/ambiance-custom.css">
         <link rel="stylesheet" href="styles/main.css" />
     </head>
-
     <body>
         <img src="images/TopBar.png" id="TopBar">
         <div id="backButton" onclick="toggleBrowser()"> Sketches </div>
@@ -29,30 +29,26 @@
 
         <textarea id="editor">
 void setup() {
-    size(screen.width, screen.height);
+  size(screen.width, screen.height);
 }
 
 void draw() {
-    background(0);
-    translate(mouseX, mouseY);
-    int posX = sin(frameCount * 0.05) * 100;
-    int posY = cos(frameCount * 0.05) * 100;
-    ellipse(posX, posY, 100, 100);
+  background(0);
+  translate(mouseX, mouseY);
+  int posX = sin(frameCount * 0.05) * 100;
+  int posY = cos(frameCount * 0.05) * 100;
+  ellipse(posX, posY, 100, 100);
 }</textarea>
 
-        <div id="sketch" align = "center">
-            <script type="application/processing"
-                    data-processing-target="pjs">
-            </script>
-            <canvas id="pjs" width="100%" height="100%"></canvas>
-        </div>
-
-        <div id="sketchBrowser">
-            <ul id="sketchList"></ul>
-        </div>
         <script src="javascript/main.js"
                 type="text/javascript"
                 charset="utf-8">
         </script>
+        <div id="sketch">
+            <canvas id="pjs"></canvas>
+        </div>
+        <div id="sketchBrowser">
+            <ul id="sketchList"></ul>
+        </div>
     </body>
 </html>
