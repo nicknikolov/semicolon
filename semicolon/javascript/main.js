@@ -101,7 +101,12 @@ function newSketch() {
     var sketchName = prompt("Please enter a name for your new sketch", "Much art");
     if (!sketchName) return;
     // set up a new sketch and save it to local storage
-    var startersCode = 'void draw() {}';
+    var startersCode = 'void setup() {\n' +
+                        '  size(screen.width, screen.height);\n' +
+                        '}\n\n' +
+                        'void draw() {\n' +
+                        '  \n' +
+                        '}';
     selectedSketch = sketchName;
     localStorage.setItem(sketchName, startersCode);
     editor.setValue(startersCode);
