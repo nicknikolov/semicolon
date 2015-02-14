@@ -3,6 +3,7 @@ var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
     lineNumbers: true,
     lineWrapping: true,
     autoCloseBrackets: true,
+    matchBrackets: true,
     autofocus: true,
     theme: 'ambiance',
     smartIndent: true,
