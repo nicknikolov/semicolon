@@ -98,7 +98,7 @@ function toggleBrowser() {
 }
 
 function newSketch() {
-    var sketchName = prompt("Please enter a name for your new sketch", "Much art");
+    var sketchName = prompt("Please enter a name for your new sketch", "");
     if (!sketchName) return;
     // set up a new sketch and save it to local storage
     var startersCode = 'void setup() {\n' +
