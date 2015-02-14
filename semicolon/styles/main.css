@@ -51,6 +51,7 @@ body {
     overflow: hidden;
 }
 .CodeMirror {
+    font-family: 'Inconsolata';
     top: 57px;
     height: 100%;
     width: 100%;
@@ -60,7 +61,7 @@ body {
     font-size: 18px;
     text-shadow: 0px 1px 2px #000;
     background: rgba(0, 0, 0, 0.4);
-    font-weight: bold;
+    font-weight: 700;
     margin-left: -8px;
     padding-right: 16px;
 }
