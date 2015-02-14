@@ -2,6 +2,7 @@ var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
     mode: 'text/x-java',
     lineNumbers: true,
     lineWrapping: true,
+    autoCloseBrackets: true,
     autofocus: true,
     theme: 'ambiance',
     smartIndent: true,
