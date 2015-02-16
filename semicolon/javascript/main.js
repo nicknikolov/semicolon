@@ -10,11 +10,49 @@ var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
     indentUnit: 2,
     tabSize: 2,
 });
+
+// hack to show cursor on mobile
+if (Hammer.defaults.cssProps.hasOwnProperty("userSelect")) {
+    delete Hammer.defaults.cssProps.userSelect;
+}
+
+var editorDiv = document.getElementsByClassName('CodeMirror')[0];
+var mc = new Hammer.Manager(editorDiv, {touchAction: 'auto'});
 var canvas = document.getElementById('pjs');
 var sketchVisible = true;
 var selectedSketch = 'Default Sketch';
 var instance;
 
+// add gestures
+mc.add( new Hammer.Tap({ event: 'doubletap', taps: 2 }) );
+
+mc.add( new Hammer.Swipe({
+    event: 'doubleswipe-left',
+    pointers: 2,
+    direction: Hammer.DIRECTION_LEFT
+}));
+mc.add( new Hammer.Swipe({
+    event: 'doubleswipe-right',
+    pointers: 2,
+    direction: Hammer.DIRECTION_RIGHT
+}));
+
+mc.on("doubletap", function(ev) {
+    // delete line at cursor on doubletab
+    editor.execCommand('deleteLine');
+});
+
+mc.on('doubleswipe-left', function(e) {
+    // doubleswipe to the left undo's the last action
+    editor.execCommand('undo');
+});
+
+mc.on('doubleswipe-right', function(e) {
+    // doubleswipe to the left undo's the last action
+    editor.execCommand('redo');
+});
+
+// rerender Processing sketch on code change
 editor.on('change', renderSketch);
 
 window.onload = function() {
@@ -172,7 +210,6 @@ function toggleBrowser() {
 
 }
 
-
 function newSketch() {
     var sketchName = prompt("Please enter a name for your new sketch", "");
     if (!sketchName) return;
@@ -189,7 +226,6 @@ function newSketch() {
     document.getElementById('sketchName').innerHTML = selectedSketch;
     toggleBrowser();
 }
-
 
 function toggleSketch() {
     var sketch = document.getElementById('sketch');
