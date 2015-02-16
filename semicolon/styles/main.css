@@ -9,7 +9,7 @@
 
 #sketchBrowser {
     font-family: Helvetica;
-    font-size: 24px;
+    font-size: 18px;
     top: 57px;
     position: fixed;
     width: 100%;
@@ -39,7 +39,7 @@
     overflow: hidden;
     width: 75%;
     background: transparent;
-    line-height: 160%;
+    line-height: 215%;
     margin-left: 9px;
     text-align: left;
     position: absolute;
@@ -48,7 +48,7 @@
 #deleteButton {
     position: absolute;
     width: 10%;
-    line-height: 160%;
+    line-height: 215%;
     left: 85%;
     width: 20px;
 }
