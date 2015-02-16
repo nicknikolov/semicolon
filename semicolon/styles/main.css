@@ -42,6 +42,15 @@
     line-height: 160%;
     margin-left: 9px;
     text-align: left;
+    position: absolute;
+}
+
+#deleteButton {
+    position: absolute;
+    width: 10%;
+    line-height: 160%;
+    left: 85%;
+    width: 20px;
 }
 
 #sketchList li a {

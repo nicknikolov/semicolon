@@ -60,7 +60,7 @@ function createCanvas() {
 function changeSketchTo(sketchKey) {
     // save old sketch first!
     localStorage.setItem(selectedSketch, editor.getValue());
-    if (!sketchName) return;
+    if (sketchKey === undefined) return;
     // load new one
     selectedSketch = localStorage.key(sketchKey);
     editor.setValue(localStorage.getItem(selectedSketch));
@@ -68,6 +68,18 @@ function changeSketchTo(sketchKey) {
     // update header and close sketch browser
     document.getElementById('sketchName').innerHTML = selectedSketch;
     toggleBrowser();
+}
+
+function deleteSketch(keyToDelete) {
+    var defaultSketchKey = 0;
+    for (item in localStorage) {
+        if (item == 'Default Sketch') break;
+        defaultSketchKey++;
+    }
+    changeSketchTo(defaultSketchKey);
+
+    localStorage.removeItem(localStorage.key(keyToDelete));
+
 }
 
 function toggleBrowser() {
@@ -81,18 +93,44 @@ function toggleBrowser() {
     ul.innerHTML = '';
 
     for (var i=0; i<localStorage.length; i++) {
+        // skip Safari bullshit
         if (localStorage.key(i).substring(0,3) === 'com') continue;
         if (localStorage.key(i) === 'debug') continue;
+
+        // create list
         var li = document.createElement('li');
+
+        // add sketch name to row
         var sketchNameInList = document.createElement('div');
         sketchNameInList.setAttribute('id', 'listText');
         sketchNameInList.innerHTML = localStorage.key(i);
         sketchNameInList.style.background = 'none';
-        li.appendChild(sketchNameInList);
-        var changeSketchCode = 'changeSketchTo(' + i + ')';
-        li.setAttribute('onclick', changeSketchCode);
-        ul.appendChild(li);
 
+        // attach change function to sketch name
+        var changeSketchFunc = 'changeSketchTo(' + i + ')';
+        sketchNameInList.setAttribute('onclick', changeSketchFunc);
+        li.appendChild(sketchNameInList);
+
+        // no delete button for default sketch, we don't
+        // want to delete that
+        if (localStorage.key(i) === 'Default Sketch') {
+            ul.appendChild(li);
+            continue;
+        }
+
+        // add delete button
+        var deleteButton = document.createElement('div');
+        deleteButton.setAttribute('id', 'deleteButton');
+        deleteButton.style.background = 'none';
+        deleteButton.innerHTML = "&#x1F480";
+
+        // attach delete function
+        deleteSketchFunc = 'deleteSketch(' + i + ')';
+        deleteButton.setAttribute('onclick', deleteSketchFunc);
+        li.appendChild(deleteButton);
+
+        // append row to list
+        ul.appendChild(li);
     }
 
     var li = document.createElement('li');
@@ -105,6 +143,7 @@ function toggleBrowser() {
     ul.appendChild(li);
 
 }
+
 
 function newSketch() {
     var sketchName = prompt("Please enter a name for your new sketch", "");
