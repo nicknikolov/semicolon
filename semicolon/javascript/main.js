@@ -84,8 +84,11 @@ function toggleBrowser() {
         if (localStorage.key(i).substring(0,3) === 'com') continue;
         if (localStorage.key(i) === 'debug') continue;
         var li = document.createElement('li');
-        li.appendChild(document.createTextNode(localStorage.key(i)));
-
+        var sketchNameInList = document.createElement('div');
+        sketchNameInList.setAttribute('id', 'listText');
+        sketchNameInList.innerHTML = localStorage.key(i);
+        sketchNameInList.style.background = 'none';
+        li.appendChild(sketchNameInList);
         var changeSketchCode = 'changeSketchTo(' + i + ')';
         li.setAttribute('onclick', changeSketchCode);
         ul.appendChild(li);
@@ -93,7 +96,11 @@ function toggleBrowser() {
     }
 
     var li = document.createElement('li');
-    li.appendChild(document.createTextNode('New'));
+    var newButton = document.createElement('div');
+    newButton.setAttribute('id', 'listText');
+    newButton.innerHTML = 'New';
+    newButton.style.background = 'none';
+    li.appendChild(newButton);
     li.setAttribute('onclick', 'newSketch()');
     ul.appendChild(li);
 

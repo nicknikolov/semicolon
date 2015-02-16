@@ -31,18 +31,24 @@
     list-style-type: none;
     height: 40px;
     margin-left: -40px;
-    text-align: center;
+}
+
+#listText {
+    background: transparent;
+    line-height: 160%;
+    margin-left: 9px;
+    text-align: left;
 }
 
 #sketchList li a {
     padding-left:10px;
 }
 
-#sketchList :nth-child(n) {
+#sketchList :nth-child(odd) {
     background-color: rgba(255, 255, 255, 0.25);
 }
 
-#sketchList :nth-child(2n) {
+#sketchList :nth-child(even) {
     background-color: rgba(52, 142, 151, 0.95);
 }
 
@@ -73,6 +79,7 @@ body {
     top: -5px;
     z-index: 6;
 }
+
 #BottomBar {
     position: fixed;
     display: none;
@@ -81,6 +88,7 @@ body {
     left: -5px;
     bottom: 0px;
 }
+
 #sketchName {
     font-family: Helvetica;
     font-size: 12pt;
