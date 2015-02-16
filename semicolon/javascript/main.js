@@ -79,6 +79,7 @@ function deleteSketch(keyToDelete) {
     changeSketchTo(defaultSketchKey);
 
     localStorage.removeItem(localStorage.key(keyToDelete));
+    toggleBrowser();
 
 }
 
