@@ -124,8 +124,7 @@ body {
     left: 37%;
 }
 
-
-#runButton {
+#toggleSketch {
     font-family: Helvetica;
     font-size: 12pt;
     color: white;
@@ -134,7 +133,8 @@ body {
     top: 30px;
     right: 10px;
 }
-#backButton {
+
+#settings {
     font-family: Helvetica;
     font-size: 12pt;
     color: white;
