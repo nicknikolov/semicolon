@@ -82,6 +82,21 @@ function deleteSketch(keyToDelete) {
 
 }
 
+function renameSketch(key) {
+    var oldSketchName = localStorage.key(key);
+    var code = localStorage.getItem(oldSketchName);
+    var newSketchName = prompt('Please enter new sketch name', oldSketchName);
+    if (!newSketchName) return;
+    // set up a new sketch and save it to local storage
+    selectedSketch = newSketchName;
+    localStorage.setItem(newSketchName, code);
+    localStorage.removeItem(oldSketchName);
+    document.getElementById('sketchName').innerHTML = selectedSketch;
+    // dont judge, it's a university project
+    toggleBrowser();
+    toggleBrowser();
+}
+
 function toggleBrowser() {
     var sketchBrowser = document.getElementById('sketchBrowser');
 
@@ -128,6 +143,18 @@ function toggleBrowser() {
         deleteSketchFunc = 'deleteSketch(' + i + ')';
         deleteButton.setAttribute('onclick', deleteSketchFunc);
         li.appendChild(deleteButton);
+
+        // add rename button
+        var renameButton = document.createElement('div');
+        renameButton.setAttribute('id', 'renameButton');
+        renameButton.style.background = 'none';
+        renameButton.innerHTML = 'R';
+
+        // attach rename function
+        renameSketchFunc = 'renameSketch(' + i + ')';
+        renameButton.setAttribute('onclick', renameSketchFunc);
+        li.appendChild(renameButton);
+
 
         // append row to list
         ul.appendChild(li);

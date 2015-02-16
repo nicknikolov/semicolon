@@ -49,7 +49,15 @@
     position: absolute;
     width: 10%;
     line-height: 215%;
-    left: 85%;
+    left: 78%;
+    width: 20px;
+}
+
+#renameButton {
+    position: absolute;
+    width: 10%;
+    line-height: 215%;
+    left: 87%;
     width: 20px;
 }
 
