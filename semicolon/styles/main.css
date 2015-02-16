@@ -34,6 +34,10 @@
 }
 
 #listText {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 75%;
     background: transparent;
     line-height: 160%;
     margin-left: 9px;
@@ -90,6 +94,10 @@ body {
 }
 
 #sketchName {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 35%;
     font-family: Helvetica;
     font-size: 12pt;
     color: white;
