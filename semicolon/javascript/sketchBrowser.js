@@ -2,7 +2,7 @@ function toggleBrowser() {
     var sketchBrowser = document.getElementById('sketchBrowser');
 
     if (sketchBrowser.style.display === 'none') sketchBrowser.style.display = 'inline';
-    else sketchBrowser.style.display = 'none';
+    else { sketchBrowser.style.display = 'none'; return}
 
     // draw list with available sketches from local storage
     var ul = document.getElementById("sketchList");
@@ -12,6 +12,7 @@ function toggleBrowser() {
         // skip Safari bullshit
         if (localStorage.key(i).substring(0,3) === 'com') continue;
         if (localStorage.key(i) === 'debug') continue;
+        if (localStorage.key(i) === 'settings') continue;
 
         // create list
         var li = document.createElement('li');

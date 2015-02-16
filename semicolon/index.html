@@ -24,7 +24,7 @@
     </head>
     <body>
         <img src="images/TopBar.png" id="TopBar">
-        <div id="settings"> Settings </div>
+        <div id="settingsButton" onclick="toggleSettings()"> Settings </div>
         <div id="sketchName" onclick="toggleBrowser()"> Test Sketch </div>
         <div id="toggleSketch" onclick="toggleSketch()"> Toggle </div>
         <div> <img src="images/TopBar.png" id="BottomBar"> </div>
@@ -45,6 +45,8 @@ void draw() {
         <script src="javascript/main.js"></script>
         <script src="javascript/gestures.js"></script>
         <script src="javascript/sketchBrowser.js"></script>
+        <script src="javascript/settings.js"></script>
+
         <div id="sketch">
             <canvas id="pjs"></canvas>
         </div>

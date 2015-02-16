@@ -15,9 +15,13 @@ var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
 editor.on('change', renderSketch);
 
 window.onload = function() {
-    var code = document.getElementsByClassName('CodeMirror');
+    if (!localStorage.getItem('settings')) initSettings();
+    var code = document.getElementsByClassName('CodeMirror')[0];
+    var settings = JSON.parse(localStorage.getItem('settings'));
+    code.style.fontSize = settings.fontSize + 'px';
     document.getElementById('sketchBrowser').style.display = 'none';
-    code[0].style.background = 'rgba(0, 0, 0, 0.75)';
+    document.getElementById('settings').style.display = 'none';
+    code.style.background = 'rgba(0, 0, 0, 0.75)';
 
     // If no default sketch is found, use the template one from
     // index.html and save it as default
