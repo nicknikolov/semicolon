@@ -13,6 +13,8 @@
         <script src="javascript/hammer.min.js"></script>
         <script src="javascript/closebrackets.js"></script>
         <script src="javascript/matchbrackets.js"></script>
+        <script src="javascript/onecolor.js"></script>
+        <script src="javascript/colorjoe.min.js"></script>
         <script src="mode/clike/clike.js"></script>
 
         <style type="text/css" media="screen"> </style>
@@ -21,6 +23,7 @@
         <link rel="stylesheet" href="styles/codemirror.css">
         <link rel="stylesheet" href="theme/ambiance-custom.css">
         <link rel="stylesheet" href="styles/main.css" />
+        <link rel="stylesheet" href="styles/colorjoe.css" />
     </head>
     <body>
         <img src="images/TopBar.png" id="TopBar">
@@ -43,6 +46,7 @@ void draw() {
 }</textarea>
 
         <script src="javascript/main.js"></script>
+        <script src="javascript/colorPicker.js"></script>
         <script src="javascript/gestures.js"></script>
         <script src="javascript/sketchBrowser.js"></script>
         <script src="javascript/settings.js"></script>
@@ -51,8 +55,8 @@ void draw() {
             <canvas id="pjs"></canvas>
         </div>
 
-        <div id="settings">
-        </div>
+        <div id="picker" class"colorPicker"></div>
+        <div id="settings"></div>
         <div id="sketchBrowser">
             <ul id="sketchList"></ul>
         </div>

@@ -11,6 +11,8 @@ var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
     tabSize: 2,
 });
 
+var firstColor = true;
+
 // rerender Processing sketch on code change
 editor.on('change', renderSketch);
 
@@ -21,6 +23,7 @@ window.onload = function() {
     code.style.fontSize = settings.fontSize + 'px';
     document.getElementById('sketchBrowser').style.display = 'none';
     document.getElementById('settings').style.display = 'none';
+    document.getElementById('picker').style.display = 'none';
     code.style.background = 'rgba(0, 0, 0, 0.75)';
 
     // If no default sketch is found, use the template one from
@@ -31,6 +34,17 @@ window.onload = function() {
     document.getElementById('sketchName').innerHTML = selectedSketch;
     editor.setValue(localStorage.getItem(selectedSketch));
     renderSketch();
+
+    // very rudamentary color picker, inserts hex value at cursor point,
+    // just smart enough to undo if you are trying out colors
+    colorjoe.rgb('picker').on('change', function(c) {
+        console.log(c.hex());
+        if (!firstColor) editor.execCommand('undo');
+        var doc = editor.getDoc();
+        var cursor = doc.getCursor();
+        doc.replaceRange(c.hex(), cursor);
+        firstColor = false;
+    });
 }
 
 function renderSketch() {
