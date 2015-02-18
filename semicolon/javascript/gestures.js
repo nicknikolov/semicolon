@@ -58,30 +58,16 @@ var tripletap = new Hammer.Tap({
     pointers: 1
 });
 
-var doubleswipeDown = new Hammer.Swipe({
-    event: 'doubleswipeDown',
-    direction: Hammer.DIRECTION_DOWN,
-    pointers: 3,
-    threshhold: 3,
-    velocity: 0.1
-});
-
 mc.add([doubletap,
         tripletap,
         doubleswipeLeft,
         swipeLeft,
         swipeRight,
         doubleswipeRight,
-        doubleswipeDown
 ]);
 
 tripletap.recognizeWith(doubletap);
 doubletap.requireFailure(tripletap);
-
-mc.on('doubleswipeDown', function(e) {
-    document.activeElement.blur(); // hide keyboard hack
-    toggleColorPicker();
-});
 
 mc.on("doubletap", function(ev) {
     // kill word

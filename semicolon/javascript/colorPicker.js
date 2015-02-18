@@ -1,4 +1,5 @@
 function toggleColorPicker() {
+    document.activeElement.blur(); // hide keyboard hack
     var colorPickerDiv = document.getElementById('picker');
 
     if (colorPickerDiv.style.display === 'none') colorPickerDiv.style.display = 'inline';

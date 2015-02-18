@@ -151,6 +151,16 @@ body {
     left: 37%;
 }
 
+#colorPicker {
+    font-family: Helvetica;
+    font-size: 12pt;
+    color: white;
+    z-index: 6;
+    position: fixed;
+    top: 30px;
+    left: 87px;
+}
+
 #toggleSketch {
     font-family: Helvetica;
     font-size: 12pt;
