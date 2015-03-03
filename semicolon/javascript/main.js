@@ -1,5 +1,5 @@
 var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
-    mode: 'text/x-java',
+    mode: 'text/x-processing',
     lineNumbers: true,
     lineWrapping: true,
     autoCloseBrackets: true,

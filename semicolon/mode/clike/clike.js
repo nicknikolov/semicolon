@@ -16,6 +16,7 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
       statementIndentUnit = parserConfig.statementIndentUnit || indentUnit,
       dontAlignCalls = parserConfig.dontAlignCalls,
       keywords = parserConfig.keywords || {},
+      specials = parserConfig.specials || {},
       builtin = parserConfig.builtin || {},
       blockKeywords = parserConfig.blockKeywords || {},
       atoms = parserConfig.atoms || {},
@@ -63,6 +64,10 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
     if (keywords.propertyIsEnumerable(cur)) {
       if (blockKeywords.propertyIsEnumerable(cur)) curPunc = "newstatement";
       return "keyword";
+    }
+    if (specials.propertyIsEnumerable(cur)) {
+      if (blockKeywords.propertyIsEnumerable(cur)) curPunc = "newstatement";
+      return "special";
     }
     if (builtin.propertyIsEnumerable(cur)) {
       if (blockKeywords.propertyIsEnumerable(cur)) curPunc = "newstatement";
@@ -265,6 +270,7 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
     add(mode.keywords);
     add(mode.builtin);
     add(mode.atoms);
+    add(mode.specials);
     if (words.length) {
       mode.helperType = mimes[0];
       CodeMirror.registerHelper("hintWords", mimes[0], words);
@@ -320,6 +326,42 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
     modeProps: {fold: ["brace", "import"]}
   });
 
+  def("text/x-processing", {
+    name: "clike",
+    keywords: words("abstract assert boolean break byte case catch char class const continue default " +
+                    "do double else enum extends final finally float for goto if implements import " +
+                    "instanceof int interface long native new package private protected public " +
+                    "return short static strictfp super switch synchronized this throw throws transient " +
+                    "try void volatile while"),
+    blockKeywords: words("catch class do else finally for if switch try while"),
+    atoms: words("true false null"),
+    specials: words("background fill stroke"),
+    builtin: words( "draw size translate ellipse screen setup delay exit loop noLoop popStyle pushStyle redraw" +
+                    "cursor focused frameCount frameRate height noCursor online width height PShape arc line point " +
+                    "quad rect triangle bezier bezierDetail bezierPoint bezierTangent curve curveDetail curvePoint " +
+                    "curveTangent curveTightness box sphere sphereDetail ellipseMode noSmooth rectMode smooth " +
+                    "strokeCap strokeJoin strokeWeight beginShape bezierVertex curveVertex endShape texture " +
+                    "textureMode vertex loadShape shape shapeMode mouseButton mouseClicked mouseDragged mouseMoved " +
+                    "mousePressed mouseReleased mouseX mouseY pmouseX pmouseY key keyCode keyPressed keyReleased " +
+                    "keyTyped link param status day hour millis minute month second year print println save saveFrame " +
+                    "applyMatrix popMatrix printMatrix pushMatrix resetMatrix rotate rotateX rotateY rotateZ scale " +
+                    "shearX shearY ambientLight diretionalLight lightFalloff lightSpecular lights noLights normal " +
+                    "pointLight spotLight beginCamera camera endCamera frustum ortho perspective printCamera " + 
+                    "printProjection modelX modelY modelZ screenX screenY screenZ ambient emissive shiniess specular " +
+                    "colorMode noFil noStroke alpha blendColor blue brightness color green hue lerpColor red " +
+                    "saturation PImage createImage image imageMode loadImage onTint requestImage tint blend copy " +
+                    "filter get loadPixels pixels set updatePixels PGraphics createGraphics hint PVector abs ceil  " +
+                    "constrain dist exp floor lerp log mag map max min norm pow round sq sqrt acos asin atan atan2 " +
+                    "cos degrees radians sin tan noise noiseDetail noiseSeed random randomSeed HALF_PI PI QUARTER_PI " +
+                    "TWO_PI"),
+    hooks: {
+      "@": function(stream) {
+        stream.eatWhile(/[\w\$_]/);
+        return "meta";
+      }
+    },
+    modeProps: {fold: ["brace", "import"]}
+  });
   def("text/x-csharp", {
     name: "clike",
     keywords: words("abstract as base break case catch checked class const continue" +
