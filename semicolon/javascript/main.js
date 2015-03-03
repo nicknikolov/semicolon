@@ -42,7 +42,7 @@ window.onload = function() {
         var word = editor.findWordAt(cursor);
         var wordStr = editor.getRange(word.anchor, word.head);
         editor.replaceRange(
-                '  ' + clickedWord + '(' + c.hex() + ')',
+                '  ' + clickedWord + '(' + c.hex() + ');',
                 { line: cursor.line, ch: 0 },
                 { line: cursor.line, ch: line.length }
         );
