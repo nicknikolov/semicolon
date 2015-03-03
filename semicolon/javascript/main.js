@@ -11,8 +11,6 @@ var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
     tabSize: 2,
 });
 
-var firstColor = true;
-
 // rerender Processing sketch on code change
 editor.on('change', renderSketch);
 
@@ -38,12 +36,16 @@ window.onload = function() {
     // very rudamentary color picker, inserts hex value at cursor point,
     // just smart enough to undo if you are trying out colors
     colorjoe.rgb('picker').on('change', function(c) {
-        console.log(c.hex());
-        if (!firstColor) editor.execCommand('undo');
         var doc = editor.getDoc();
         var cursor = doc.getCursor();
-        doc.replaceRange(c.hex(), cursor);
-        firstColor = false;
+        var line = doc.getLine(cursor.line);
+        var word = editor.findWordAt(cursor);
+        var wordStr = editor.getRange(word.anchor, word.head);
+        editor.replaceRange(
+                '  ' + clickedWord + '(' + c.hex() + ')',
+                { line: cursor.line, ch: 0 },
+                { line: cursor.line, ch: line.length }
+        );
     });
 }
 
@@ -86,3 +88,4 @@ function toggleSketch() {
         sketchVisible = true;
     }
 }
+

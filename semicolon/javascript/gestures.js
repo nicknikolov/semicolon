@@ -97,9 +97,11 @@ mc.on('swipe-right', function(e) {
 
 
 mc.on('tripletap', function(e) {
-    // add ; after cursors
-    var doc = editor.getDoc();
-    var cursor = doc.getCursor();
-    doc.replaceRange(';', cursor);
+    // common helper, for now only color
+    var word = editor.findWordAt(editor.getCursor());
+    var wordStr = editor.getRange(word.anchor, word.head);
+    if (!R.contains(wordStr)(['background', 'fill', 'stroke'])) return;
+    toggleColorPicker();
+    clickedWord = wordStr;
 
 });
