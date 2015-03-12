@@ -14,6 +14,11 @@ var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
 // rerender Processing sketch on code change
 editor.on('change', renderSketch);
 
+editor.on('inputRead', function(e) {
+    CodeMirror.showHint(editor, CodeMirror.hint.auto,
+            { 'completeOnSingleClick': true });
+});
+
 window.onload = function() {
     if (!localStorage.getItem('settings')) initSettings();
     var code = document.getElementsByClassName('CodeMirror')[0];
@@ -43,8 +48,8 @@ window.onload = function() {
         var wordStr = editor.getRange(word.anchor, word.head);
         editor.replaceRange(
                 '  ' + clickedWord + '(' + c.hex() + ');',
-                { line: cursor.line, ch: 0 },
-                { line: cursor.line, ch: line.length }
+        { line: cursor.line, ch: 0 },
+            { line: cursor.line, ch: line.length }
         );
     });
 }
@@ -64,7 +69,7 @@ function renderSketch() {
 }
 
 function createCanvas() {
-   // Make a new canvas, in case we're switching from 2D to 3D contexts.
+    // Make a new canvas, in case we're switching from 2D to 3D contexts.
     var container = document.getElementById('sketch');
     var sketch = document.getElementById('pjs');
     container.removeChild(sketch);
