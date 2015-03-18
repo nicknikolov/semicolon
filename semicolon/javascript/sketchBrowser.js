@@ -106,6 +106,7 @@ function changeSketchTo(sketchKey) {
 
 function deleteSketch(keyToDelete) {
     // switch to default sketch
+    if (!confirm('Do you really wish to delete this sketch?')) return;
     var defaultSketchKey = 0;
     for (item in localStorage) {
         if (item == 'Default Sketch') break;
