@@ -58,7 +58,14 @@ var tripletap = new Hammer.Tap({
     pointers: 1
 });
 
+var tap = new Hammer.Tap({
+    event: 'tap',
+    taps: 1,
+    pointers: 1
+});
+
 mc.add([doubletap,
+        tap,
         tripletap,
         doubleswipeLeft,
         swipeLeft,
@@ -68,6 +75,7 @@ mc.add([doubletap,
 
 tripletap.recognizeWith(doubletap);
 doubletap.requireFailure(tripletap);
+tap.requireFailure(doubletap);
 
 mc.on("doubletap", function(ev) {
     // kill word
@@ -95,13 +103,21 @@ mc.on('swipe-right', function(e) {
     editor.execCommand('goWordRight');
 });
 
-
-mc.on('tripletap', function(e) {
+mc.on('tap', function(e) {
     // common helper, for now only color
     var word = editor.findWordAt(editor.getCursor());
     var wordStr = editor.getRange(word.anchor, word.head);
     if (!R.contains(wordStr)(['background', 'fill', 'stroke'])) return;
     toggleColorPicker();
     clickedWord = wordStr;
-
 });
+
+//mc.on('tripletap', function(e) {
+//    // common helper, for now only color
+//    var word = editor.findWordAt(editor.getCursor());
+//    var wordStr = editor.getRange(word.anchor, word.head);
+//    if (!R.contains(wordStr)(['background', 'fill', 'stroke'])) return;
+//    toggleColorPicker();
+//    clickedWord = wordStr;
+//
+//});
