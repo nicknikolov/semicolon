@@ -138,6 +138,7 @@ body {
 }
 
 #sketchName {
+    text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -179,6 +180,17 @@ body {
     position: fixed;
     top: 30px;
     left: 10px;
+}
+
+.r, .d {
+    width: 24px;
+    margin-top: 7px;
+    background-color: initial !important;
+}
+
+#s, #c, #t, #plus, #minus {
+    width: 25px;
+    background-color: initial !important;
 }
 
 .fontButton {

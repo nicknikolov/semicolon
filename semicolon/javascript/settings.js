@@ -10,7 +10,7 @@ function toggleSettings() {
     fontPlus.setAttribute('type', 'button');
     fontPlus.setAttribute('class', 'fontButton');
     fontPlus.setAttribute('onclick', 'increaseFont()');
-    fontPlus.innerHTML = 'font+';
+    fontPlus.innerHTML = '<img id="plus" src="./images/biggerFont.png">';
 
     settingsDiv.appendChild(fontPlus);
 
@@ -18,7 +18,7 @@ function toggleSettings() {
     fontMinus.setAttribute('type', 'button');
     fontMinus.setAttribute('class', 'fontButton');
     fontMinus.setAttribute('onclick', 'decreaseFront()');
-    fontMinus.innerHTML = 'font-';
+    fontMinus.innerHTML = '<img id="minus" src="./images/smallerFont.png">';
 
     settingsDiv.appendChild(fontMinus);
 }

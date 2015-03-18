@@ -39,7 +39,7 @@ function toggleBrowser() {
         var deleteButton = document.createElement('div');
         deleteButton.setAttribute('id', 'deleteButton');
         deleteButton.style.background = 'none';
-        deleteButton.innerHTML = "&#x1F480";
+        deleteButton.innerHTML = '<img class="d" src="./images/delete.png">';
 
         // attach delete function
         deleteSketchFunc = 'deleteSketch(' + i + ')';
@@ -50,7 +50,7 @@ function toggleBrowser() {
         var renameButton = document.createElement('div');
         renameButton.setAttribute('id', 'renameButton');
         renameButton.style.background = 'none';
-        renameButton.innerHTML = 'R';
+        renameButton.innerHTML = '<img class="r" src="./images/rename.png">';
 
         // attach rename function
         renameSketchFunc = 'renameSketch(' + i + ')';
