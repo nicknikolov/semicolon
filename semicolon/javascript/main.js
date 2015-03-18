@@ -25,6 +25,7 @@ window.onload = function() {
     var settings = JSON.parse(localStorage.getItem('settings'));
     code.style.fontSize = settings.fontSize + 'px';
     document.getElementById('sketchBrowser').style.display = 'none';
+    document.getElementById('code-snippets').style.display = 'none';
     document.getElementById('settings').style.display = 'none';
     document.getElementById('picker').style.display = 'none';
     code.style.background = 'rgba(0, 0, 0, 0.75)';
