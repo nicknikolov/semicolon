@@ -84,14 +84,16 @@ function toggleSketch() {
     // hide or show code
     var sketch = document.getElementById('sketch');
     var code = document.getElementsByClassName('CodeMirror');
+    var toggleButton = document.getElementById('t');
 
     if(sketchVisible) {
         code[0].style.display = 'none';
         sketchVisible = false;
+        t.setAttribute('src', 'images/toggle2.png');
     } else {
         code[0].style.display = 'block';
         code[0].style.background = 'rgba(0, 0, 0, 0.75)';
+        t.setAttribute('src', 'images/toggle1.png');
         sketchVisible = true;
     }
 }
-

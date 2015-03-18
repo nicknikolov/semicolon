@@ -154,17 +154,18 @@ body {
 }
 
 #sketchName {
+    text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    width: 35%;
+    width: 40%;
     font-family: Helvetica;
     font-size: 12pt;
     color: white;
     z-index: 6;
     position: fixed;
     top: 30px;
-    left: 37%;
+    left: 30%;
 }
 
 #colorPicker {
@@ -195,6 +196,22 @@ body {
     position: fixed;
     top: 30px;
     left: 10px;
+}
+
+.r, .d {
+    width: 24px;
+    margin-top: 7px;
+    background-color: initial !important;
+}
+
+.d {
+    width: 20px;
+    margin-top: 9px;
+}
+
+#s, #t, #plus, #minus {
+    width: 25px;
+    background-color: initial !important;
 }
 
 .fontButton {
