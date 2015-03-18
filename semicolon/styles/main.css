@@ -142,14 +142,14 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    width: 35%;
+    width: 40%;
     font-family: Helvetica;
     font-size: 12pt;
     color: white;
     z-index: 6;
     position: fixed;
     top: 30px;
-    left: 37%;
+    left: 30%;
 }
 
 #colorPicker {
