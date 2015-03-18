@@ -209,9 +209,16 @@ body {
     margin-top: 9px;
 }
 
-#s, #t, #plus, #minus {
+#s, #t, #n, #plus, #minus {
     width: 25px;
     background-color: initial !important;
+}
+
+#n {
+    position: fixed;
+    width: 20px;
+    margin-top: 8px;
+    margin-left: 10px;
 }
 
 .fontButton {

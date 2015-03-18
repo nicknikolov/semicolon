@@ -8,6 +8,16 @@ function toggleBrowser() {
     var ul = document.getElementById("sketchList");
     ul.innerHTML = '';
 
+
+    var li = document.createElement('li');
+    var newButton = document.createElement('div');
+    newButton.setAttribute('id', 'listText');
+    newButton.innerHTML = 'New Sketch <img id="n" src="./images/new.png">';
+    newButton.style.background = 'none';
+    li.appendChild(newButton);
+    li.setAttribute('onclick', 'newSketch()');
+    ul.appendChild(li);
+    
     for (var i=0; i<localStorage.length; i++) {
         // skip Safari bullshit
         if (localStorage.key(i).substring(0,3) === 'com') continue;
@@ -61,15 +71,6 @@ function toggleBrowser() {
         // append row to list
         ul.appendChild(li);
     }
-
-    var li = document.createElement('li');
-    var newButton = document.createElement('div');
-    newButton.setAttribute('id', 'listText');
-    newButton.innerHTML = 'New';
-    newButton.style.background = 'none';
-    li.appendChild(newButton);
-    li.setAttribute('onclick', 'newSketch()');
-    ul.appendChild(li);
 
 }
 
