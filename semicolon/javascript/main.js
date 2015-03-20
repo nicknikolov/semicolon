@@ -11,6 +11,12 @@ var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
     tabSize: 2,
 });
 
+// Add fast click to the div
+// (excluding Codemirror and for some reason the sketch
+// browser div as fast click crashes it ;( )
+var button = document.querySelector(".fastclick");
+new FastClick(button);
+
 // rerender Processing sketch on code change
 editor.on('change', renderSketch);
 
