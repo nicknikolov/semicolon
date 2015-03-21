@@ -1,41 +1,16 @@
-var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
-    mode: 'text/x-processing',
-    lineNumbers: true,
-    lineWrapping: true,
-    autoCloseBrackets: true,
-    matchBrackets: true,
-    autofocus: true,
-    theme: 'ambiance',
-    smartIndent: true,
-    indentUnit: 2,
-    tabSize: 2,
-});
-
 // Add fast click to the div
 // (excluding Codemirror and for some reason the sketch
 // browser div as fast click crashes it ;( )
 var button = document.querySelector(".fastclick");
 new FastClick(button);
 
-// rerender Processing sketch on code change
-editor.on('change', renderSketch);
-
-editor.on('inputRead', function(e) {
-    CodeMirror.showHint(editor, CodeMirror.hint.auto,
-            { 'completeOnSingleClick': true });
-});
-
 window.onload = function() {
+    // Create settings if they don't exist
     if (!localStorage.getItem('settings')) initSettings();
-    var code = document.getElementsByClassName('CodeMirror')[0];
+    // Parse settings object and set font size
+    var code = codeEditor();
     var settings = JSON.parse(localStorage.getItem('settings'));
     code.style.fontSize = settings.fontSize + 'px';
-    document.getElementById('sketchBrowser').style.display = 'none';
-    document.getElementById('code-snippets').style.display = 'none';
-    document.getElementById('settings').style.display = 'none';
-    document.getElementById('picker').style.display = 'none';
-    code.style.background = 'rgba(0, 0, 0, 0.75)';
-
     // If no default sketch is found, use the template one from
     // index.html and save it as default
     if (!localStorage.getItem(selectedSketch)) {
@@ -43,22 +18,8 @@ window.onload = function() {
     }
     document.getElementById('sketchName').innerHTML = selectedSketch;
     editor.setValue(localStorage.getItem(selectedSketch));
+    // Start rendering
     renderSketch();
-
-    // very rudamentary color picker, inserts hex value at cursor point,
-    // just smart enough to undo if you are trying out colors
-    colorjoe.rgb('picker').on('change', function(c) {
-        var doc = editor.getDoc();
-        var cursor = doc.getCursor();
-        var line = doc.getLine(cursor.line);
-        var word = editor.findWordAt(cursor);
-        var wordStr = editor.getRange(word.anchor, word.head);
-        editor.replaceRange(
-                '  ' + clickedWord + '(' + c.hex() + ');',
-        { line: cursor.line, ch: 0 },
-            { line: cursor.line, ch: line.length }
-        );
-    });
 }
 
 function renderSketch() {
@@ -66,9 +27,10 @@ function renderSketch() {
         canvas = createCanvas();
         var canvas = document.getElementById('pjs');
         var sketch = Processing.compile(editor.getValue());
+        // Cleanup
         if (instance) instance.exit();
         instance = new Processing(canvas, sketch);
-        // save file
+        // Save file
         localStorage.setItem(selectedSketch, editor.getValue());
     } catch (e) {
         console.log(e);
@@ -87,19 +49,20 @@ function createCanvas() {
 }
 
 function toggleSketch() {
-    // hide or show code
-    var sketch = document.getElementById('sketch');
-    var code = document.getElementsByClassName('CodeMirror');
+    // Hide or show code
+    var code = codeEditor();
     var toggleButton = document.getElementById('t');
 
-    if(sketchVisible) {
-        code[0].style.display = 'none';
-        sketchVisible = false;
+    if (code.style.display !== 'none') {
+        code.style.display = 'none';
         t.setAttribute('src', 'images/toggle2.png');
     } else {
-        code[0].style.display = 'block';
-        code[0].style.background = 'rgba(0, 0, 0, 0.75)';
+        code.style.display = 'block';
         t.setAttribute('src', 'images/toggle1.png');
-        sketchVisible = true;
     }
+}
+
+// Help with code uglyness
+function codeEditor() {
+    return document.getElementsByClassName('CodeMirror')[0];
 }
