@@ -107,6 +107,10 @@ mc.on('swipe-right', function(e) {
 
 mc.on('tap', function(e) {
     // common helper, for now only color
+    if (e.center.x < 30) {
+        toggleCodeSnippets();
+        return;
+    };
     var word = editor.findWordAt(editor.getCursor());
     var wordStr = editor.getRange(word.anchor, word.head);
     if (!R.contains(wordStr)(['background', 'fill', 'stroke'])) return;
@@ -116,5 +120,5 @@ mc.on('tap', function(e) {
 
 mc.on('tripletap', function(e) {
     // code snippets box
-    toggleCodeSnippets();
+//    toggleCodeSnippets();
 });
