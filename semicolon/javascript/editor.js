@@ -15,7 +15,8 @@ var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
 editor.on('change', renderSketch);
 
 var lastSelection = { start: 0, end: 0, code: ''};
-var lastOneWasNothingToo = false;
+// forget last selection after 2 times
+var forgetCounter = 0;
 
 editor.on('cursorActivity', function() {
     // a bit of a hack but, keep last marked
@@ -25,13 +26,13 @@ editor.on('cursorActivity', function() {
     var start = doc.getCursor(true);
     var end = doc.getCursor(false);
     var newSelection = doc.getRange(start, end);
-    if (newSelection || lastOneWasNothingToo) {
+    if (newSelection || forgetCounter === 2) {
         lastSelection.start = start;
         lastSelection.end = end;
         lastSelection.code = newSelection;
-        lastOneWasNothingToo = false;
+        forgetCounter = 0;
     } else {
-        lastOneWasNothingToo = true;
+        forgetCounter++;
     }
 });
 

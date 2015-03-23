@@ -107,7 +107,7 @@ mc.on('swipe-right', function(e) {
 
 mc.on('tap', function(e) {
     // common helper, for now only color
-    if (e.center.x < 30) {
+    if (e.center.x < 50) {
         toggleCodeSnippets();
         return;
     };
