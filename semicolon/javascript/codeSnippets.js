@@ -1,6 +1,8 @@
 function toggleCodeSnippets() {
 
     var codeSnippetsDiv = document.getElementById('code-snippets');
+    if (codeSnippetsDiv.style.display === 'none') codeSnippetsDiv.style.display = 'inline';
+    else { codeSnippetsDiv.style.display = 'none'; return; }
 
     codeSnippetsDiv.onclick = toggleCodeSnippets;
 
@@ -9,11 +11,7 @@ function toggleCodeSnippets() {
     var top =  document.body.scrollTop;
     codeSnippetsDiv.style.top = top + 'px';
 
-    if (codeSnippetsDiv.style.display === 'none') codeSnippetsDiv.style.display = 'inline';
-    else { codeSnippetsDiv.style.display = 'none'; return; }
-
     var ul = document.getElementById('snippetsList');
-    console.log(ul);
     ul.innerHTML = '';
 
     var loops = document.createElement('li');

@@ -5,6 +5,11 @@ var button = document.querySelector(".fastclick");
 new FastClick(button);
 
 window.onload = function() {
+    // I don't know why this is happening but make sure
+    // this is none in the beginning
+    var codeSnippetsDiv = document.getElementById('code-snippets');
+    codeSnippetsDiv.style.display = 'none';
+
     // Create settings if they don't exist
     if (!localStorage.getItem('settings')) initSettings();
     // Parse settings object and set font size
