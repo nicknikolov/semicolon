@@ -61,14 +61,16 @@ body {
 #settingsButton {
     float: left;
     height: 100%;
-    line-height: 75px;
+    line-height: 86px;
     width: 20%;
 }
 
 #s {
     margin-left: 20%;
-    width: 25px;
+    width: 23px;
     background-color: initial !important;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
 }
 
 #sketch {
@@ -84,7 +86,7 @@ body {
     top: 60px;
     position: fixed;
     width: 100%;
-    height: 30%;
+    height: 12%;
     z-index: 2;
     margin-left: -8px;
     display: none;
@@ -235,9 +237,11 @@ body {
 
 
 .r, .d {
-    width: 24px;
+    width: 20px;
     margin-top: 7px;
     background-color: initial !important;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
 }
 
 .d {
@@ -246,10 +250,50 @@ body {
 }
 
 
-#n, #plus, #minus {
+#n {
     width: 25px;
     margin: 20% auto;
     background-color: initial !important;
+    border: none;
+}
+
+.fontPlus {
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 15px;
+    border: none;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    background: url('/images/biggerFont.png') no-repeat;
+    background-size: 30px 30px;
+    float: left;
+}
+
+.fontMinus {
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 15px;
+    border: none;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    background: url('/images/smallerFont.png') no-repeat;
+    background-size: 30px 30px;
+    float: left;
+}
+
+.autoIndent {
+    width: 70px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 15px;
+    background: none;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    border: solid;
+    float: left;
 }
 
 #n {

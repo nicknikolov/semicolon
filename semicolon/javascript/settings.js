@@ -7,24 +7,19 @@ function toggleSettings() {
     else { settingsDiv.style.display = 'none'; return; }
 
     var fontPlus = document.createElement('button');
-    fontPlus.setAttribute('type', 'button');
-    fontPlus.setAttribute('class', 'fontButton');
+    fontPlus.setAttribute('class', 'fontPlus');
     fontPlus.setAttribute('onclick', 'increaseFont()');
-    fontPlus.innerHTML = '<img id="plus" src="./images/biggerFont.png">';
 
     settingsDiv.appendChild(fontPlus);
 
     var fontMinus = document.createElement('button');
-    fontMinus.setAttribute('type', 'button');
-    fontMinus.setAttribute('class', 'fontButton');
+    fontMinus.setAttribute('class', 'fontMinus');
     fontMinus.setAttribute('onclick', 'decreaseFront()');
-    fontMinus.innerHTML = '<img id="minus" src="./images/smallerFont.png">';
 
     settingsDiv.appendChild(fontMinus);
 
     var autoIndent = document.createElement('button');
-    autoIndent.setAttribute('type', 'button');
-    autoIndent.setAttribute('class', 'fontButton');
+    autoIndent.setAttribute('class', 'autoIndent');
     autoIndent.setAttribute('onclick', 'autoIndent()');
     autoIndent.innerHTML = 'Auto indent';
 
