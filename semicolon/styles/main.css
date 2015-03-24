@@ -95,7 +95,7 @@ body {
 
 #picker {
     top: 42px;
-    position: fixed;
+    position: absolute;
     z-index: 2;
     width: 100%;
     height: 55%;
