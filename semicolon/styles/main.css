@@ -1,6 +1,6 @@
 body {
     overflow: hidden;
-    font-family: Helvetica;
+    font-family: 'Fira Sans';
     font-size: 18px;
     color: white;
 }
@@ -17,7 +17,7 @@ body {
 }
 
 .CodeMirror {
-    font-family: 'Inconsolata';
+    font-family: 'Fira Mono';
     top: 52px;
     height: 100%;
     width: 100%;
@@ -27,7 +27,7 @@ body {
     font-size: 18px;
     text-shadow: 0px 1px 2px #000;
     background: rgba(0, 0, 0, 0.4) !important;
-    font-weight: 700;
+    font-weight: 600;
     margin-left: -8px;
     padding-right: 16px;
     display: block;
@@ -40,8 +40,9 @@ body {
     white-space: nowrap;
     overflow: hidden;
     width: 60%;
-    font-size: 12pt;
+    font-size: 13pt;
     line-height: 75px;
+    font-weight: 600;
 }
 
 #toggleSketch {
