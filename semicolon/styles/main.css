@@ -219,6 +219,7 @@ body {
 }
 
 .fontButton {
+    float: left;
     font-size: 20px;
     color: white;
     margin-top: 20px;

@@ -21,6 +21,19 @@ function toggleSettings() {
     fontMinus.innerHTML = '<img id="minus" src="./images/smallerFont.png">';
 
     settingsDiv.appendChild(fontMinus);
+
+    var autoIndent = document.createElement('button');
+    autoIndent.setAttribute('type', 'button');
+    autoIndent.setAttribute('class', 'fontButton');
+    autoIndent.setAttribute('onclick', 'autoIndent()');
+    autoIndent.innerHTML = 'Auto indent';
+    
+    settingsDiv.appendChild(autoIndent);
+}
+
+function autoIndent() {
+    editor.execCommand('selectAll');
+    editor.execCommand('indentAuto');
 }
 
 function increaseFont() {
