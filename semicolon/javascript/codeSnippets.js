@@ -1,6 +1,10 @@
 function toggleCodeSnippets() {
 
     var codeSnippetsDiv = document.getElementById('code-snippets');
+    // Show snippets window in relation to where
+    // user has scrolled
+    var top =  document.body.scrollTop;
+    codeSnippetsDiv.style.top = top + 'px';
 
     if (codeSnippetsDiv.style.display === 'none') codeSnippetsDiv.style.display = 'inline';
     else { codeSnippetsDiv.style.display = 'none'; return; }
@@ -13,6 +17,7 @@ function toggleCodeSnippets() {
     var forLoop = document.createElement('div');
     forLoop.setAttribute('class', 'snippet');
     forLoop.innerHTML = 'for loop';
+    forLoop.style.background = 'none';
     forLi.appendChild(forLoop);
     forLi.setAttribute('onclick', 'insertForLoop()');
     ul.appendChild(forLi);
@@ -21,6 +26,7 @@ function toggleCodeSnippets() {
     var whileLoop = document.createElement('div');
     whileLoop.setAttribute('class', 'snippet');
     whileLoop.innerHTML = 'while loop';
+    whileLoop.style.background = 'none';
     whileLi.appendChild(whileLoop);
     whileLi.setAttribute('onclick', 'insertWhileLoop()');
     ul.appendChild(whileLi);

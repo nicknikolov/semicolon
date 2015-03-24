@@ -17,7 +17,7 @@ function toggleBrowser() {
     li.appendChild(newButton);
     li.setAttribute('onclick', 'newSketch()');
     ul.appendChild(li);
-    
+
     for (var i=0; i<localStorage.length; i++) {
         // skip Safari bullshit
         if (localStorage.key(i).substring(0,3) === 'com') continue;

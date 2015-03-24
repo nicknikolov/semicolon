@@ -90,17 +90,6 @@ body {
     background-color: rgba(52, 142, 151, 0.95);
 }
 
-#code-snippets {
-    top: 10%;
-    position: fixed;
-    width: 60%;
-    height: 60%;
-    z-index: 2;
-    color: white;
-    display: none;
-    background-color: rgba(52, 142, 151, 0.95);
-}
-
 #picker {
     top: 57px;
     position: absolute;
@@ -124,14 +113,49 @@ body {
     background-color: rgba(52, 142, 151, 0.95);
 }
 
+#code-snippets {
+    top: 60px;
+    position: fixed;
+    width: 100%;
+    height: 60%;
+    z-index: 2;
+    margin-left: -8px;
+    display: none;
+    background-color: rgba(52, 142, 151, 0.95);
+}
+
 #snippetsList {
-    margin-top: 8px;
+    margin-top: 40px;
 }
 
 #snippetsList li {
     list-style-type: none;
     height: 40px;
     margin-left: -40px;
+}
+
+#snippetsList li a {
+    padding-left:10px;
+}
+
+#snippetsList :nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+#snippetsList :nth-child(even) {
+    background-color: rgba(52, 142, 151, 0.95);
+}
+
+.snippet {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 75%;
+    background: transparent;
+    line-height: 215%;
+    margin-left: 9px;
+    text-align: left;
+    position: absolute;
 }
 
 #sketchList {
@@ -142,6 +166,18 @@ body {
     list-style-type: none;
     height: 40px;
     margin-left: -40px;
+}
+
+#sketchList li a {
+    padding-left:10px;
+}
+
+#sketchList :nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+#sketchList :nth-child(even) {
+    background-color: rgba(52, 142, 151, 0.95);
 }
 
 #listText {
@@ -172,17 +208,6 @@ body {
     width: 20px;
 }
 
-#sketchList li a {
-    padding-left:10px;
-}
-
-#sketchList :nth-child(odd) {
-    background-color: rgba(255, 255, 255, 0.25);
-}
-
-#sketchList :nth-child(even) {
-    background-color: rgba(52, 142, 151, 0.95);
-}
 
 #colorPicker {
     color: white;

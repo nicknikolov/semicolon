@@ -27,7 +27,7 @@ function toggleSettings() {
     autoIndent.setAttribute('class', 'fontButton');
     autoIndent.setAttribute('onclick', 'autoIndent()');
     autoIndent.innerHTML = 'Auto indent';
-    
+
     settingsDiv.appendChild(autoIndent);
 }
 
