@@ -150,12 +150,27 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    width: 75%;
+    width: 30%;
     background: transparent;
     line-height: 215%;
     margin-left: 9px;
     text-align: left;
     position: absolute;
+}
+
+.description {
+    margin-top: 5px;
+    margin-right: 9px;
+    width: 70%;
+    float: right;
+    font-size: 12px;
+}
+
+.separator p {
+    line-height: 215%;
+    background: none !important;
+    padding-left: 10px;
+    font-weight: 600;
 }
 
 #sketchList {

@@ -1,6 +1,9 @@
 function toggleCodeSnippets() {
 
     var codeSnippetsDiv = document.getElementById('code-snippets');
+
+    codeSnippetsDiv.onclick = toggleCodeSnippets;
+
     // Show snippets window in relation to where
     // user has scrolled
     var top =  document.body.scrollTop;
@@ -13,20 +16,37 @@ function toggleCodeSnippets() {
     console.log(ul);
     ul.innerHTML = '';
 
+    var loops = document.createElement('li');
+    loops.innerHTML = '<p> Loops </p>';
+    loops.setAttribute('class', 'separator');
+    ul.appendChild(loops);
+
     var forLi = document.createElement('li');
     var forLoop = document.createElement('div');
     forLoop.setAttribute('class', 'snippet');
-    forLoop.innerHTML = 'for loop';
+    forLoop.innerHTML = 'for';
     forLoop.style.background = 'none';
     forLi.appendChild(forLoop);
+    var description = document.createElement('div');
+    description.setAttribute('class', 'description');
+    description.innerHTML = 'Inserted wrapped around selection' +
+                            ' or at cursor pos if nothing selected';
+    description.style.background = 'none';
+    forLi.appendChild(description);
     forLi.setAttribute('onclick', 'insertForLoop()');
     ul.appendChild(forLi);
 
     var whileLi = document.createElement('li');
     var whileLoop = document.createElement('div');
     whileLoop.setAttribute('class', 'snippet');
-    whileLoop.innerHTML = 'while loop';
+    whileLoop.innerHTML = 'while';
     whileLoop.style.background = 'none';
+    var description = document.createElement('div');
+    description.setAttribute('class', 'description');
+    description.innerHTML = 'Inserted wrapped around selection' +
+                            ' or at cursor pos if nothing selected';
+    description.style.background = 'none';
+    whileLi.appendChild(description);
     whileLi.appendChild(whileLoop);
     whileLi.setAttribute('onclick', 'insertWhileLoop()');
     ul.appendChild(whileLi);
@@ -40,12 +60,10 @@ function insertForLoop() {
         var start = doc.getCursor(true);
         var i = prompt("count variable:", "i");
         if (!i) {
-            toggleCodeSnippets();
             return;
         }
         var loops = prompt("loop amount:", "3");
         if (!loops) {
-            toggleCodeSnippets();
             return;
         }
         editor.replaceRange('', lastSelection.start, lastSelection.end);
@@ -58,12 +76,10 @@ function insertForLoop() {
         var start = doc.getCursor();
         var i = prompt("count variable:", "i");
         if (!i) {
-            toggleCodeSnippets();
             return;
         }
         var loops = prompt("loop amount:", "3");
         if (!loops) {
-            toggleCodeSnippets();
             return;
         }
         editor.replaceRange(
@@ -72,7 +88,6 @@ function insertForLoop() {
     }
     editor.execCommand('selectAll');
     editor.execCommand('indentAuto');
-    toggleCodeSnippets();
 }
 
 function insertWhileLoop() {
@@ -80,12 +95,10 @@ function insertWhileLoop() {
     if (lastSelection.code) {
         var i = prompt("count variable:", "i");
         if (!i) {
-            toggleCodeSnippets();
             return;
         }
         var loops = prompt("loop amount:", "3");
         if (!loops) {
-            toggleCodeSnippets();
             return;
         }
         editor.replaceRange('', lastSelection.start, lastSelection.end);
@@ -98,12 +111,10 @@ function insertWhileLoop() {
         var start = doc.getCursor();
         var i = prompt("count variable:", "i");
         if (!i) {
-            toggleCodeSnippets();
             return;
         }
         var loops = prompt("loop amount:", "3");
         if (!loops) {
-            toggleCodeSnippets();
             return;
         }
         editor.replaceRange(
@@ -113,5 +124,4 @@ function insertWhileLoop() {
     }
     editor.execCommand('selectAll');
     editor.execCommand('indentAuto');
-    toggleCodeSnippets();
 }
