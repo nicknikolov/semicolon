@@ -13,6 +13,8 @@ window.onload = function() {
     sketchBrowser.style.display = 'none';
     var settingsDiv = document.getElementById('settings');
     settingsDiv.style.display = 'none';
+    var colorPicker = document.getElementById('picker');
+    colorPicker.style.display = 'none';
 
     // Create settings if they don't exist
     if (!localStorage.getItem('settings')) initSettings();

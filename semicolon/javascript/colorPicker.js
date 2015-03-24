@@ -22,11 +22,9 @@ function toggleColorPicker() {
 
     if (document.getElementById('closeButton')) return;
     var closeButton = document.createElement('button');
-    closeButton.setAttribute('type', 'button');
-    closeButton.setAttribute('class', 'fontButton');
     closeButton.setAttribute('id', 'closeButton');
     closeButton.setAttribute('onclick', 'closeTogglePicker()');
-    closeButton.innerHTML = 'close';
+
     colorPickerDiv.appendChild(closeButton);
 
 }
