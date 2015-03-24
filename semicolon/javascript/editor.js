@@ -185,5 +185,7 @@ CodeMirror.registerHelper("hint", "processing", function (cm, options) {
 
 editor.on('inputRead', function(e) {
     CodeMirror.showHint(editor, CodeMirror.hint.processing,
-            { 'completeOnSingleClick': true });
+            { 'completeOnSingleClick': true,
+                'completeSingle': false
+            });
 });
