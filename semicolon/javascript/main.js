@@ -9,6 +9,10 @@ window.onload = function() {
     // this is none in the beginning
     var codeSnippetsDiv = document.getElementById('code-snippets');
     codeSnippetsDiv.style.display = 'none';
+    var sketchBrowser = document.getElementById('sketchBrowser');
+    sketchBrowser.style.display = 'none';
+    var settingsDiv = document.getElementById('settings');
+    settingsDiv.style.display = 'none';
 
     // Create settings if they don't exist
     if (!localStorage.getItem('settings')) initSettings();
