@@ -44,7 +44,7 @@ function insertForLoop() {
         }
         editor.replaceRange('', lastSelection.start, lastSelection.end);
         editor.replaceRange(
-                "for (var "+i+"=0; "+i+"<"+loops+"; "+i+"++) {\n "
+                "for (int "+i+"=0; "+i+"<"+loops+"; "+i+"++) {\n "
                 + lastSelection.code + "\n}", lastSelection.start
         );
     } else {
@@ -61,7 +61,7 @@ function insertForLoop() {
             return;
         }
         editor.replaceRange(
-                "for (var "+i+"=0; "+i+"<"+loops+"; "+i+"++) {}", start
+                "for (int "+i+"=0; "+i+"<"+loops+"; "+i+"++) {}", start
         );
     }
     editor.execCommand('selectAll');
@@ -84,7 +84,7 @@ function insertWhileLoop() {
         }
         editor.replaceRange('', lastSelection.start, lastSelection.end);
         editor.replaceRange(
-                "var " + i + " = 0;\nwhile ("+i+"<"+loops+") {\n "
+                "int " + i + " = 0;\nwhile ("+i+"<"+loops+") {\n "
                 + lastSelection.code + "\n"+i+"++;\n}", lastSelection.start
         );
     } else {
@@ -101,7 +101,7 @@ function insertWhileLoop() {
             return;
         }
         editor.replaceRange(
-                "var " + i + " = 0;\nwhile ("+i+"<"+loops+") {"
+                "int " + i + " = 0;\nwhile ("+i+"<"+loops+") {"
                 + "\n"+i+"++;\n}", start
         );
     }
