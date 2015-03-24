@@ -303,13 +303,32 @@ body {
     margin-left: 10px;
 }
 
-.fontButton {
-    float: left;
-    font-size: 20px;
-    color: white;
-    margin-top: 20px;
-    margin-left: 20px;
-    width: 80px;
-    height: 80px;
-    border-radius: 5px;
+
+.CodeMirror-linewidget {
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 16px;
+    background: rgba(229, 240, 19, 0.8);
+    color: red;
+    text-shadow: none;
 }
+
+.errorImg {
+    float: left;
+    background-color: red;
+    border-radius: 50%;
+    margin-top: 3px;
+    margin-right: 8px;
+    padding-left: 2px;
+    width: 18px;
+    height: 18px;
+}
+
+.errorImg img {
+    width: 15px;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    display: block;
+    margin: 0 auto;
+}
+

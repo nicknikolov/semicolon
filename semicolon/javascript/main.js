@@ -31,8 +31,10 @@ window.onload = function() {
     renderSketch();
 }
 
+var errorWidget;
 function renderSketch() {
     try {
+        if (errorWidget) errorWidget.clear();
         canvas = createCanvas();
         var canvas = document.getElementById('pjs');
         var sketch = Processing.compile(editor.getValue());
@@ -42,6 +44,14 @@ function renderSketch() {
         // Save file
         localStorage.setItem(selectedSketch, editor.getValue());
     } catch (e) {
+        var error = document.createElement('div');
+        error.setAttribute('class', 'error');
+        error.innerHTML = e.message;
+        var errorImg = document.createElement('div');
+        errorImg.setAttribute('class', 'errorImg');
+        errorImg.innerHTML = '<img src="images/warning-8x.png"></img>';
+        error.appendChild(errorImg);
+        errorWidget = editor.addLineWidget(e.line-5, error, {});
         console.log(e);
     }
 }
