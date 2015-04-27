@@ -27,6 +27,10 @@ window.onload = function() {
     if (!localStorage.getItem(selectedSketch)) {
         localStorage.setItem(selectedSketch, editor.getValue());
     }
+    // Load example sketches
+    for (sketch in exampleSketches) {
+      localStorage.setItem(sketch.toString(), exampleSketches[sketch]);
+    }
     document.getElementById('sketchName').innerHTML = selectedSketch;
     editor.setValue(localStorage.getItem(selectedSketch));
     // Start rendering
