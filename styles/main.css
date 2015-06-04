@@ -1,0 +1,349 @@
+body {
+    overflow: hidden;
+    font-family: 'Fira Sans';
+    font-size: 18px;
+    color: white;
+    background: black;
+}
+
+.topbar {
+    background: rgb(55, 134, 144);
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+
+}
+
+.fix .topbar {
+    position: absolute;
+}
+
+.CodeMirror {
+    font-family: 'Fira Mono';
+    top: 52px;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    opacity: 1;
+    display: block;
+    font-size: 18px;
+    text-shadow: 0px 1px 2px #000;
+    background: rgba(0, 0, 0, 0.4) !important;
+    font-weight: 600;
+    margin-left: -8px;
+    padding-right: 16px;
+    display: block;
+}
+
+#sketchName {
+    float: left;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 60%;
+    font-size: 13pt;
+    line-height: 75px;
+    font-weight: 600;
+}
+
+#toggleSketch {
+    float: right;
+    width: 20%;
+    height: 100%;
+    line-height: 92px;
+}
+
+#t {
+    margin-left: 44%;
+    width: 28px;
+    background-color: initial !important;
+}
+
+#settingsButton {
+    float: left;
+    height: 100%;
+    line-height: 86px;
+    width: 20%;
+}
+
+#s {
+    margin-left: 20%;
+    width: 23px;
+    background-color: initial !important;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+#sketch {
+    left: 0px;
+    top: 60px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 1;
+    display: inline;
+}
+
+#settings {
+    top: 60px;
+    position: fixed;
+    width: 100%;
+    height: 12%;
+    z-index: 2;
+    margin-left: -8px;
+    display: none;
+    background-color: rgba(52, 142, 151, 0.95);
+}
+
+#picker {
+    top: 42px;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 55%;
+    margin-left: -8px;
+    padding-right: 16px;
+    background-color: rgba(52, 142, 151, 0.95);
+    display: none;
+    border: none;
+    border-radius: 0;
+}
+
+#sketchBrowser {
+    top: 60px;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    margin-left: -8px;
+    padding-right: 16px;
+    display: none;
+    background-color: rgba(52, 142, 151, 0.95);
+}
+
+#code-snippets {
+    top: 60px;
+    position: fixed;
+    width: 100%;
+    height: 60%;
+    z-index: 2;
+    margin-left: -8px;
+    display: none;
+    background-color: rgba(52, 142, 151, 0.95);
+}
+
+#snippetsList {
+    margin-top: 40px;
+}
+
+#snippetsList li {
+    list-style-type: none;
+    height: 40px;
+    margin-left: -40px;
+}
+
+#snippetsList li a {
+    padding-left:10px;
+}
+
+#snippetsList :nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+#snippetsList :nth-child(even) {
+    background-color: rgba(52, 142, 151, 0.95);
+}
+
+.snippet {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 30%;
+    background: transparent;
+    line-height: 215%;
+    margin-left: 9px;
+    text-align: left;
+    position: absolute;
+}
+
+.description {
+    margin-top: 5px;
+    margin-right: 9px;
+    width: 70%;
+    float: right;
+    font-size: 12px;
+}
+
+.separator p {
+    line-height: 215%;
+    background: none !important;
+    padding-left: 10px;
+    font-weight: 600;
+}
+
+#sketchList {
+    margin-top: 0px;
+}
+
+#sketchList li {
+    list-style-type: none;
+    height: 40px;
+    margin-left: -40px;
+}
+
+#sketchList li a {
+    padding-left:10px;
+}
+
+#sketchList :nth-child(odd) {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+#sketchList :nth-child(even) {
+    background-color: rgba(52, 142, 151, 0.95);
+}
+
+#listText {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 75%;
+    background: transparent;
+    line-height: 215%;
+    margin-left: 9px;
+    text-align: left;
+    position: absolute;
+}
+
+#deleteButton {
+    position: absolute;
+    width: 10%;
+    line-height: 215%;
+    left: 78%;
+    width: 20px;
+}
+
+#renameButton {
+    position: absolute;
+    width: 10%;
+    line-height: 215%;
+    left: 87%;
+    width: 20px;
+}
+
+
+#closeButton {
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 15px;
+    border: none;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    background: url('../images/check-8x.png') no-repeat;
+    background-size: 30px 30px;
+    float: left;
+}
+
+
+.r, .d {
+    width: 20px;
+    margin-top: 7px;
+    background-color: initial !important;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+.d {
+    width: 20px;
+    margin-top: 9px;
+}
+
+
+#n {
+    width: 25px;
+    margin: 20% auto;
+    background-color: initial !important;
+    border: none;
+}
+
+.fontPlus {
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 15px;
+    border: none;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    background: url('../images/biggerFont.png') no-repeat;
+    background-size: 30px 30px;
+    float: left;
+}
+
+.fontMinus {
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+    margin-left: 15px;
+    border: none;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    background: url('../images/smallerFont.png') no-repeat;
+    background-size: 30px 30px;
+    float: left;
+}
+
+.autoIndent {
+    width: 70px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 15px;
+    background: none;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    border: solid;
+    float: left;
+}
+
+#n {
+    position: fixed;
+    width: 20px;
+    margin-top: 8px;
+    margin-left: 10px;
+}
+
+
+.CodeMirror-linewidget {
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 16px;
+    background: rgba(229, 240, 19, 0.8);
+    color: red;
+    text-shadow: none;
+}
+
+.errorImg {
+    float: left;
+    background-color: red;
+    border-radius: 50%;
+    margin-top: 3px;
+    margin-right: 8px;
+    padding-left: 2px;
+    width: 18px;
+    height: 18px;
+}
+
+.errorImg img {
+    width: 15px;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    display: block;
+    margin: 0 auto;
+}
+
